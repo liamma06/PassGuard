@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PassKey</title>
+    <link rel="stylesheet" href="ScoreGenStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/zxcvbn/dist/zxcvbn.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side">
+            <input type="text" id="password" name="password" placeholder="Generate/Edit" oninput="CheckPassword()"><br>
+
+            <div class="options">
+                <span class="generate-icon" onclick="Generate()"><i class="fas fa-sync"></i></span>
+            </div>
+        </div>
+
+        <div class="right-side">
+
+            <div class="section" id="score-section">
+                <div class="title">
+                    <p id="result"></p>
+                </div>
+                <p id="score"></p>
+            </div>
+
+            <div class="section" id="suggestions-section" style="display: none;">
+                <div class="title">
+                    <p>Suggestions</p>
+                </div>
+                <p id="feedback"></p>
+            </div>
+
+            <div class="section" id="time-section" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attack</th>
+                            <th>Crack Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Online(Throttling)</td>
+                            <td><span id="online_throttling"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Online(No Throttling)</td>
+                            <td><span id="online_no_throttling"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Offline Slow Hashing</td>
+                            <td><span id="offline_slow_hashing"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Offline Fast Hashing</td>
+                            <td><span id="offline_fast_hashing"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings">
+
+        <div class="title">Settings</div>
+
+        <div class="setting-item">
+            <input type="checkbox" id="uppercase" name="uppercase" checked>
+            <label for="uppercase"> UpperCase</label>
+        </div>
+        <div class="setting-item">
+            <input type="checkbox" id="lowercase" name="lowercase" checked>
+            <label for="lowercase"> LowerCase</label>
+        </div>
+        <div class="setting-item">
+            <input type="checkbox" id="digits" name="digits" checked>
+            <label for="digits"> Digits</label>
+        </div>
+        <div class="setting-item">
+            <input type="checkbox" id="special" name="special" checked>
+            <label for="special">Symbols</label>
+        </div>
+        <div class="setting-item">
+            <label for="length">Password Length:</label>
+        <input type="number" id="length" name="length" min="0" max="60" value="0">
+        </div>
+    </div>
+
+    <script src="ScoreGen.js"></script>
+
+</body>
+</html>
